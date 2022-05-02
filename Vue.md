@@ -1,14 +1,26 @@
 ## Vue Shop 
 
+## file directory explain:
+
+1.App.vue:routerView
+
+2.index.vue:
+
+2.1 a base html view of all pages
+
+2.2 conatins another routter view:home, order,me
+
 
 
 ## Goal
 
-1.Set Up the Mock Up data
-
-2.Start the Project
+Add  few routers
 
 ## Process
+
+
+
+## Set up the apache Mock data server
 
 1.Apache Start the Project Mock Up data
 

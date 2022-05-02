@@ -7,9 +7,12 @@
       :to="item.path"
       active-class="is-selected"
     >
+    <!-- icon adding  -->
       <div class="tab-item-icon">
+        <!-- icon .name  -->
         <i :class="'fa fa-' + item.icon"></i>
       </div>
+      <!-- icon text -->
       <div class="tab-item-label">{{ item.title }}</div>
     </router-link>
   </div>

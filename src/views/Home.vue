@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <!-- header -->
     <div class="header">
       <div
         class="address_map"
@@ -19,7 +20,11 @@
         搜索商家，商家名称
       </div>
     </div>
+
+    this is the home page
   </div>
+
+  
 </template>
 
 <script>

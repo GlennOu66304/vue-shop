@@ -21,32 +21,28 @@ const routes = [
         component: () => import("@/views/Home.vue"),
       },
       {
-        path: "/order",
-        name: "order",
-        component: () => import("@/views/Order.vue"),
+        path: "/category",
+        name: "category",
+        component: () => import("@/views/Category.vue"),
+      },
+      {
+        path: "/search",
+        name: "search",
+        component: () => import("@/views/Search.vue"),
+      },
+      {
+        path: "/cart",
+        name: "cart",
+        component: () => import("@/views/Cart.vue"),
       },
       {
         path: "/me",
         name: "me",
         component: () => import("@/views/Me.vue"),
       },
-      {
-        path: "/address",
-        name: "address",
-        component: () => import("@/views/Address.vue"),
-      },
-      {
-        path: "/city",
-        name: "city",
-        component: () => import("@/views/City.vue"),
-      },
     ],
   },
-  {
-    path: "/login",
-    name: "Login",
-    component: () => import("@/views/Login.vue"),
-  },
+
 ];
 
 const router = new VueRouter({
