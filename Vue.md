@@ -20,6 +20,14 @@ Add  few routers
 
 
 
+## Vant UI usage:
+
+[在非 vite 项目中按需引入组件（推荐）](https://youzan.github.io/vant/#/zh-CN/quickstart) 
+
+[[what is the difference between babel.config.js and vue.config.js and can i combine the 2 files?](https://stackoverflow.com/questions/61674491/what-is-the-difference-between-babel-config-js-and-vue-config-js-and-can-i-combi)]
+
+[局部注册](https://youzan.github.io/vant/#/zh-CN/advanced-usage#zu-jian-zhu-ce)
+
 ## Set up the apache Mock data server
 
 1.Apache Start the Project Mock Up data

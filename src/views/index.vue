@@ -15,11 +15,11 @@ export default {
     return {
 
       tabbarData: [
-        { title: "首页", icon: "home", path: "./home" },
-        { title: "分类", icon: "file-text-o", path: "./category" },
-        { title: "搜索", icon: "user", path: "./search" },
-        { title: "购物车", icon: "user", path: "./cart" },
-        { title: "我的", icon: "user", path: "./me" },
+        { title: "首页", icon: "home-o", path: "./home" },
+        { title: "分类", icon: "home-o", path: "./category" },
+        { title: "搜索", icon: "search", path: "./search" },
+        { title: "购物车", icon: "home-o", path: "./cart" },
+        { title: "我的", icon: "home-o", path: "./me" },
       ],
     };
   },

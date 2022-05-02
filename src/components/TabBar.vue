@@ -5,24 +5,30 @@
       v-for="(item, index) in data"
       :key="index"
       :to="item.path"
-      active-class="is-selected"
     >
-    <!-- icon adding  -->
-      <div class="tab-item-icon">
-        <!-- icon .name  -->
-        <i :class="'fa fa-' + item.icon"></i>
-      </div>
-      <!-- icon text -->
-      <div class="tab-item-label">{{ item.title }}</div>
+      <van-tabbar v-model="active">
+        <van-tabbar-item icon="home-o">{{ item.title }}</van-tabbar-item>
+      </van-tabbar>
     </router-link>
   </div>
 </template>
 
 <script>
+import { Tabbar, TabbarItem } from "vant";
+
 export default {
   name: "tabbar",
+  data() {
+    return {
+      active: 0,
+    };
+  },
   props: {
     data: Array,
+  },
+  components: {
+    [Tabbar.name]: Tabbar,
+    [TabbarItem.name]: TabbarItem,
   },
 };
 </script>
