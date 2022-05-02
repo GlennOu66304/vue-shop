@@ -7,42 +7,34 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "index",
-    component: () => import("@/views/index.vue"),
-    children: [
-      {
-        path: "",
-        redirect: "/home",
-      },
-      {
-        path: "/home",
-        name: "home",
-        component: () => import("@/views/Home.vue"),
-      },
-      {
-        path: "/category",
-        name: "category",
-        component: () => import("@/views/Category.vue"),
-      },
-      {
-        path: "/search",
-        name: "search",
-        component: () => import("@/views/Search.vue"),
-      },
-      {
-        path: "/cart",
-        name: "cart",
-        component: () => import("@/views/Cart.vue"),
-      },
-      {
-        path: "/me",
-        name: "me",
-        component: () => import("@/views/Me.vue"),
-      },
-    ],
+    path: "",
+    redirect: "/home",
   },
-
+  {
+    path: "/home",
+    name: "home",
+    component: () => import("@/views/Home.vue"),
+  },
+  {
+    path: "/category",
+    name: "category",
+    component: () => import("@/views/Category.vue"),
+  },
+  {
+    path: "/search",
+    name: "search",
+    component: () => import("@/views/Search.vue"),
+  },
+  {
+    path: "/cart",
+    name: "cart",
+    component: () => import("@/views/Cart.vue"),
+  },
+  {
+    path: "/me",
+    name: "me",
+    component: () => import("@/views/Me.vue"),
+  },
 ];
 
 const router = new VueRouter({
@@ -59,5 +51,13 @@ const router = new VueRouter({
 //     isLogin ? next() : next("/login");
 //   }
 // });
+
+// navigation duplicate errors fix
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject)
+    return originalPush.call(this, location, onResolve, onReject);
+  return originalPush.call(this, location).catch((err) => err);
+};
 
 export default router;

@@ -14,11 +14,17 @@
 
 ## Goal
 
-Add  few routers
+every tab could show it's own title
 
 ## Process
 
+1.App.vue Parent's nav bar title will change
 
+2.defined a title value in the data section
+
+3.also register a event in the created()
+
+4.parent component App.vue will call this function
 
 ## Vant UI usage:
 
