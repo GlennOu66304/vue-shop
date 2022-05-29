@@ -7,7 +7,7 @@ module.exports = {
         hotOnly: false,
         proxy: {
             '/api': {
-                target: 'https://eleme4-2021.herokuapp.com/api',
+                target: 'http://www.api.qsyj.com',
                 ws: true,
                 changrigin: true,
                 pathRewrite: {
