@@ -1,5 +1,37 @@
 ## Vue Shop 
 
+1.data fetch
+
+2.color change:
+
+2.1 only one will be activated 
+
+3.component build(main content write)
+
+4.bs scroll use
+
+
+
+1.add the new classname to the menuItem($refs)
+
+2.Also apply the css property to the menu item
+
+3.
+
+
+
+
+
+## Data Fetch
+
+default Array[index to get the array].children to get the goods item in the selcted's array
+
+index equal == activate array
+
+Click
+
+
+
 
 
 Home 
