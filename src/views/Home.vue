@@ -56,23 +56,24 @@
       <!-- selections window-view-->
       <Title title="精选活动" icon="gift" />
       <!-- window1: bg image, v-for box list -->
-      <div class="window" >
+      <div class="window">
         <img :src="windows.bigImg1" alt="" />
-        <div  class="hidden-view" >
+        <div class="hidden-view">
           <div
             v-for="(item, index) in window1"
             :key="index"
-          class="winddowsItem-wrapper"
+            class="winddowsItem-wrapper"
           >
             <WindowsItem :item="item" />
           </div>
         </div>
       </div>
       <!-- window2 -->
-      <div class="window" >
+      <div class="window">
         <img :src="windows.bigImg2" alt="" />
         <div class="hidden-view">
-          <div class="winddowsItem-wrapper"
+          <div
+            class="winddowsItem-wrapper"
             v-for="(item, index) in window2"
             :key="index"
           >
@@ -85,7 +86,13 @@
     <div class="personal-recommendation">
       <!-- personal recommendation commented-view-->
       <Title title="为您推荐" icon="bookmark" />
-      <h2>test3</h2>
+      <div
+        class="personal_recommend"
+        v-for="(item, index) in personalList"
+        :key="index"
+      >
+        <PersonalItem :item="item" />
+      </div>
     </div>
   </div>
 </template>
@@ -95,6 +102,7 @@ import { Swipe, SwipeItem, Row, Col } from "vant";
 import Title from "../components/Title.vue";
 import GoodsItem from "../components/GoodsItem.vue";
 import WindowsItem from "../components/WindowsItem.vue";
+import PersonalItem from "../components/PersonalItem.vue";
 export default {
   name: "home",
 
@@ -102,6 +110,7 @@ export default {
     Title,
     GoodsItem,
     WindowsItem,
+    PersonalItem,
     [Swipe.name]: Swipe,
     [SwipeItem.name]: SwipeItem,
     [Row.name]: Row,
@@ -113,6 +122,7 @@ export default {
       title: "全视眼镜",
       bannerList: [],
       singleList: [],
+      personalList: [],
       windows: {},
       window1: [],
       window2: [],
@@ -125,6 +135,7 @@ export default {
     this.loadBanner();
     this.loadSingleList();
     this.loadSelectList();
+    this.loadPersonalList();
     this.$emit("onTitle", this.title);
   },
 
@@ -170,16 +181,26 @@ export default {
           console.log(err);
         });
     },
+    async loadPersonalList() {
+      var that = this;
+      await this.$axios
+        .get("/api/commend-list.json")
+        .then((res) => {
+          that.personalList = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
 
 <style scoped>
 .home-view {
-  height: 3000px;
+  height: 2650px;
   width: 100%;
   padding-top: 45px;
- 
 }
 .banner-view {
   height: 160px;
@@ -216,9 +237,6 @@ export default {
 .winddowsItem-wrapper {
   width: 650px;
 }
-.personal-recommendation {
-  background-color: white;
-}
 
 .window {
   height: 280px;
@@ -228,12 +246,16 @@ export default {
 .window img {
   width: 100%;
   margin-top: 10px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 .hidden-view {
   width: 100%;
   overflow-x: auto;
-  height:100px;
+  height: 100px;
 }
 
+.personal-recommendation {
+  background-color: #f2f2f2;
+  /* height: 900px; */
+}
 </style>
