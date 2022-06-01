@@ -1,5 +1,21 @@
 ## Vue Shop 
 
+
+
+Home 
+
+simliar like banner(v-for), title
+
+UI
+
+1.goods
+
+1.good item sections
+
+2.in the home page secton get the data
+
+
+
 ## file directory explain:
 
 1.App.vue:routerView
@@ -62,7 +78,7 @@ git reset the git commit to view the commit
 
 ## Demo and Source Code()
 
-Mobile Bease App**:eleme, meituan,java web elementUI**
+Mobile Bease App**:eleme, meituan,java web elementUI** Vue3 Project
 
 [Demo](https://github.com/iphone3/qsyj)
 
