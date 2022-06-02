@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view @onTitle="getTitle" />
-    <van-nav-bar :title="title" fixed />
+    <!-- <van-nav-bar :title="title" fixed /> -->
     <van-tabbar v-model="active" active-color="red">
       <van-tabbar-item icon="home-o" to="/home">首页</van-tabbar-item>
       <van-tabbar-item icon="filter-o" to="/category">分类</van-tabbar-item>
@@ -16,24 +16,28 @@
 import { NavBar, Tabbar, TabbarItem } from "vant";
 export default {
   name: "app",
-  created() {},
+
+  components: {
+    [Tabbar.name]: Tabbar,
+    [TabbarItem.name]: TabbarItem,
+    [NavBar.name]: NavBar,
+  },
+
   data() {
     return {
       active: 0,
       title: "",
     };
   },
+
+  created() {},
+
   methods: {
     getTitle(title) {
       // console.log(title)
       this.title = title;
     },
-  },
-  components: {
-    [Tabbar.name]: Tabbar,
-    [TabbarItem.name]: TabbarItem,
-    [NavBar.name]: NavBar,
-  },
+  }
 };
 </script>
 

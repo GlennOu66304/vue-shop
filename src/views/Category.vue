@@ -1,5 +1,6 @@
 <template>
   <div class="category">
+    <van-nav-bar title="分类" />
     <!-- left menu
 v-for loop render an unorder list
 1.text only
@@ -27,7 +28,7 @@ v-for loop render an unorder list
         </div>
         <div class="content">
           <p class="name">{{ item.name }}</p>
-          <p class="oldPrice">原价:￥{{ item.oldprice }}</p>
+          <p class="oldPrice">原价:￥{{ item.oldPrice }}</p>
           <p class="price">折扣价:￥{{ item.price }}</p>
         </div>
       </div>
@@ -50,17 +51,7 @@ export default {
     };
   },
 
-  computed: {
-    address() {
-      return this.$store.getters.address;
-    },
-    city() {
-      return (
-        this.$store.getters.location.addressComponent.city ||
-        this.$store.getters.location.addressComponent.province
-      );
-    },
-  },
+
 
   created() {
     this.loadCategories();
@@ -109,9 +100,22 @@ export default {
 .categoty {
  
 }
+.van-nav-bar {
+  height: 2.8125rem;
+  background: red;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 2.8125rem;
+  text-align: center;
+}
+
+.van-nav-bar__title {
+  color: white;
+}
 .menu-wrapper {
   background-color: white;
-  margin-top: 50px;
+
   height: 700px;
   float: left;
   width: 100px;
@@ -133,13 +137,16 @@ export default {
 }
 
 .food-wrapper {
-  margin-top: 50px;
+
   float: right;
   width: 100%;
   margin-left: -100px;
   background-color: #f1f1f1;
 }
 
+/* 两列自适应布局方案整理
+https://segmentfault.com/a/1190000004424442
+*/
 .food-item {
   margin-left: 120px;
   background-color: white;

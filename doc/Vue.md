@@ -1,3 +1,57 @@
+
+
+## Goal
+
+1.Fetch the Search data
+
+2.UI before search Vant UI input
+
+2,1 input section+ key word
+
+2.2 enter search
+
+2.3 search suggestion
+
+2.4 gray area
+
+3.UI after the Search
+
+4.Shift between the before and after search(v-show),@click trigger this happen
+
+4.1 new router search-result, v-for render the result X
+
+4.2 left arrow, search result(option2) 
+
+4.3 vant UI error loading, then fetch the data ,afte the data then set the searchResultDetails to true, then start to render the data
+
+when you hit the search result: (change it in the click method)
+
+1.has the search result:
+
+1.1close the suggestion section
+
+1.2load the search result
+
+
+
+2.no search result(this.toast achieve)
+
+2.1close the suggestion section
+
+2.2load the search result
+
+
+
+Nav bar issue
+
+defult no nav bar add the nav bar later
+
+## Procee
+
+
+
+
+
 ## Vue Shop 
 
 1.data fetch

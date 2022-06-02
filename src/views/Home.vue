@@ -1,5 +1,6 @@
 <template>
   <div class="home-view">
+     <van-nav-bar title="首页" />
     <!-- banner -->
     <!-- 1.banner componetn use 2. data v-for 3.render the content-->
     <van-swipe :autoplay="3000" indicator-color="white" class="banner-view">
@@ -200,7 +201,21 @@ export default {
 .home-view {
   height: 2650px;
   width: 100%;
-  padding-top: 45px;
+  
+}
+
+.van-nav-bar {
+  height: 2.8125rem;
+  background: red;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 2.8125rem;
+  text-align: center;
+}
+
+.van-nav-bar__title {
+  color: white;
 }
 .banner-view {
   height: 160px;
