@@ -1,22 +1,43 @@
 <template>
   <div class="me">
-        <van-nav-bar title="我的" />
+    <van-nav-bar title="我的" />
+
+    <!-- simple intro -->
+    <!-- order's area -->
+    <div>
+      <span @click="chekcAllOrder">查看全部订单</span>
+    </div>
+    <!-- sercvice area -->
+    <!-- log out button -->
+    <!-- go to the all order area -->
+    <OrderAll v-if="showOrderAll" />
   </div>
 </template>
 
 <script>
+import OrderAll from "../components/OrderAll.vue";
 export default {
   name: "me",
-    data(){
-    return{ 
-      title:"我的"
-    }
 
-  },
-  created(){
-    this.$emit("onTitle",this.title)
+  components: {
+      OrderAll,
+    },
 
+  data() {
+    return {
+      title: "我的",
+      showOrderAll: false,
+    };
   },
+
+  created() {},
+
+  methods: {
+    chekcAllOrder() {
+      this.showOrderAll = true;
+    },
+    
+  }
 };
 </script>
 

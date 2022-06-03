@@ -1,5 +1,15 @@
 
 
+default the order deails is fals
+
+after you click the all order section, then show the order details section (v-if)
+
+transition effect use as well
+
+
+
+
+
 ## Cart interatc flow:
 
 
