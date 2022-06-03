@@ -11,7 +11,7 @@
     </van-swipe>
     <!-- category -->
     <van-row gutter="2" type="flex" justify="center" class="category-view">
-      <van-col span="4" class="category-item" style="padding-left:25px">
+      <van-col span="4" class="category-item" >
         <!-- circle -->
         <div class="circle" style="background-color: #db72ab;"></div>
         <!-- text -->
@@ -227,9 +227,9 @@ export default {
   background-color: #f2f2f2;
   overflow: hidden;
 }
-.category-item {
+/* .category-item {
   margin-right: 20px;
-}
+} */
 .circle {
   width: 40px;
   height: 40px;

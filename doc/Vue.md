@@ -1,6 +1,14 @@
-
-
 ## Goal
+
+1.categoray bug fix
+
+2.Nav bar component build
+
+
+
+
+
+## ## Search
 
 1.Fetch the Search data
 

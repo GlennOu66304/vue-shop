@@ -20,15 +20,15 @@
       show-action
       shape="round"
       @search="onSearch"
-      
     >
-      <div slot="action" @click="onSearch">搜索</div>
+      <template #action>
+        <div @click="onSearch">搜索</div>
+       
+      </template>
     </van-search>
 
-
-
     <!-- search suggestions -->
-    <div class="search-suggestions" v-if="!hasResult" >
+    <div class="search-suggestions" v-if="!hasResult">
       <h2>this is the search suggestions</h2>
     </div>
     <!-- search result section only show when there is
@@ -41,7 +41,6 @@
         v-for="item in searchResultList"
         :key="item.id"
       >
-    
         <SearchResultItem :item="item" />
       </div>
     </div>
@@ -89,6 +88,7 @@ export default {
           // true has the value of
           this.hasResult = true;
           this.searchResultList = res.data.list;
+          this.inputValue = "";
           // console.log(this.searchResultList);
         })
         .catch((err) => {
@@ -99,7 +99,7 @@ export default {
       // console.log(this.inputValue);
     },
     clearInput() {
-      this.inputValue= "";
+      this.inputValue = "";
     },
     onClickLeft() {
       this.hasResult = false;
@@ -110,7 +110,6 @@ export default {
 
 <style>
 .input-wrapper {
-  
 }
 .van-nav-bar {
   height: 2.8125rem;
@@ -124,10 +123,10 @@ export default {
 .van-nav-bar__title {
   color: white;
 }
-.van-nav-bar .van-icon{
+.van-nav-bar .van-icon {
   color: white;
 }
-.van-nav-bar__text{
+.van-nav-bar__text {
   color: white;
 }
 </style>
