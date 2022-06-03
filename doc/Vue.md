@@ -6,7 +6,35 @@
 
 
 
+## Mobile website test
 
+1.Vue Project configuration
+
+[Vue  Create site](https://blog.csdn.net/qq_43540219/article/details/107735809)
+
+2.find the IP of the Mac:
+
+[How to Find Your IP Address On a Mac](https://www.hellotech.com/guide/for/how-to-find-ip-address-on-mac)
+
+3.open the IP address and + port number to visite the address
+
+4.02-移动端调试工具-Weinre真机调试
+
+[02-移动端调试工具-Weinre真机调试](https://www.jianshu.com/p/8a341388d3d1)
+
+[video Tutorial](https://www.udemy.com/course/vuejs-app/learn/lecture/8654350#content)
+
+## The reason why the clear effect does not work
+
+You can use test it in the mobile device
+
+
+
+or add the emulator
+
+[桌面端适配](https://www.wenjiangs.com/doc/vant-advanced-usage#zhuo-mian-duan-gua-pei)
+
+[vant-search组件在pc（非移动端模式下） clear事件不触发 ](https://github.com/youzan/vant/issues/6367)
 
 ## ## Search
 

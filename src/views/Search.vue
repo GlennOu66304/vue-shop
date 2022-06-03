@@ -26,7 +26,7 @@
        
       </template>
     </van-search>
-
+   
     <!-- search suggestions -->
     <div class="search-suggestions" v-if="!hasResult">
       <h2>this is the search suggestions</h2>
@@ -44,14 +44,11 @@
         <SearchResultItem :item="item" />
       </div>
     </div>
-    <!-- no search suggestions -->
-    <!-- <div class="no-search-results" v-else>
-      <h2>no search suggestions</h2>
-    </div> -->
   </div>
 </template>
 
 <script>
+
 import { Search, Toast, NavBar } from "vant";
 
 import SearchResultItem from "../components/SearchResultItem.vue";
@@ -97,6 +94,9 @@ export default {
         });
 
       // console.log(this.inputValue);
+    },
+    onCancel() {
+      Toast("取消");
     },
     clearInput() {
       this.inputValue = "";
