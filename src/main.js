@@ -6,7 +6,7 @@ import store from "./store";
 
 import { Lazyload } from "vant";
 import { NavBar } from 'vant';
-
+import '@vant/touch-emulator';
 
 // options 为可选参数，无则不传
 Vue.use(Lazyload);

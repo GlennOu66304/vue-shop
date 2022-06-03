@@ -1,3 +1,29 @@
+
+
+## Cart interatc flow:
+
+
+
+go to the cart router, there are few shopping item' (v-for render)
+
+and checkout row, 
+
+click the submit order, it will go to the location selection 
+
+Price number calculate: signle item price * number + [all the selected item]
+
+click the edit icon, then go to the location edit icon
+
+
+
+## 1.Go to me section
+
+2.render the intro section
+
+3.click the order all, it will open the all order page
+
+
+
 ## Goal
 
 1.categoray bug fix
@@ -30,7 +56,7 @@ You can use test it in the mobile device
 
 
 
-or add the emulator
+or add the emulator: choose the mobile site in the PC view, then you can click the clear icon to clean it
 
 [桌面端适配](https://www.wenjiangs.com/doc/vant-advanced-usage#zhuo-mian-duan-gua-pei)
 
