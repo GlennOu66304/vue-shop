@@ -2,19 +2,53 @@
   <div class="me">
     <van-nav-bar
       v-if="showOrderAll"
-      title="我订单"
+      title="我的订单"
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"
     />
-    <van-nav-bar v-else title="我的" />
-    <!-- simple intro -->
-    <!-- order's area -->
-    <div>
-      <span v-show="!showOrderAll" @click="chekcAllOrder">查看全部订单</span>
+    <!-- <van-nav-bar v-else title="我的" /> -->
+    <div class="me-wrapper" v-show="!showOrderAll">
+      <div class="red-background"></div>
+      <!-- simple intro -->
+      <div class="simple-intro">
+        <!-- css 两个元素重叠,css元素如何重叠？
+        https://blog.csdn.net/weixin_36473056/article/details/119397867#:~:text=css%E5%85%83%E7%B4%A0%E9%87%8D%E5%8F%A0%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A1%E3%80%81%E7%BB%99%E5%85%83%E7%B4%A0%E8%AE%BE%E7%BD%AE%E8%B4%9Fmargin%EF%BC%8C%E8%B4%9Fmargin%E5%8F%AF%E4%BB%A5%E8%AE%A9%E5%85%83%E7%B4%A0%E7%9A%84%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%8F%98%E5%B0%8F%EF%BC%8C%E5%90%8E%E9%9D%A2%E7%9A%84%E5%85%83%E7%B4%A0%E5%8F%AF%E4%BB%A5%E8%A6%86%E7%9B%96%E5%BD%93%E5%89%8D%E7%9A%84%E5%85%83%E7%B4%A0%EF%BC%9B2%E3%80%81%E4%BD%BF%E7%94%A8position%E5%B1%9E%E6%80%A7%EF%BC%8C%E5%88%A9%E7%94%A8%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D%E5%92%8C%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%E6%9D%A5%E8%AE%A9%E5%A4%9A%E4%B8%AA%E5%85%83%E7%B4%A0%E8%BF%9B%E8%A1%8C%E9%87%8D%E5%8F%A0%E3%80%82,%E6%9C%AC%E6%95%99%E7%A8%8B%E6%93%8D%E4%BD%9C%E7%8E%AF%E5%A2%83%EF%BC%9Awindows10%E7%B3%BB%E7%BB%9F%E3%80%81css3%E7%89%88%EF%BC%8C%E8%AF%A5%E6%96%B9%E6%B3%95%E9%80%82%E7%94%A8%E4%BA%8E%E6%89%80%E6%9C%89%E5%93%81%E7%89%8C%E7%94%B5%E8%84%91%E3%80%82
+         -->
+        <div>
+          <van-image
+            round
+            width="65"
+            height="65"
+            lazy-load
+            src="http://www.api.qsyj.com/img/atom.png"
+          />
+          <!-- <img src="http://www.api.qsyj.com/img/atom.png" alt="" /> -->
+          <span class="name">请叫我阿童木</span>
+        </div>
+        <span class="data">收藏 | 关注 | 足迹 | 心得</span>
+      </div>
+      <!-- order's area -->
+
+      <div class="order-area">
+        我的订单
+        <span v-show="!showOrderAll" @click="chekcAllOrder">查看全部</span>
+        <van-divider />
+      </div>
+      <!-- sercvice area -->
+      <div class="service-area">
+        我的服务
+        <span>查看全部</span>
+        <van-divider />
+        <span>邀请好友</span>
+        <van-divider />
+        <span>我的收藏</span>
+        <van-divider />
+        <span>我的问答</span>
+      </div>
+      <!-- log out button -->
+      <van-button class="logou" type="default" block>退出登录</van-button>
     </div>
-    <!-- sercvice area -->
-    <!-- log out button -->
     <!-- go to the all order area -->
     <OrderAll :orderList="orderList" v-if="showOrderAll" />
   </div>
@@ -22,11 +56,15 @@
 
 <script>
 import OrderAll from "../components/OrderAll.vue";
+import { Button, Divider, Image as VanImage } from "vant";
 export default {
   name: "me",
 
   components: {
     OrderAll,
+    [Button.name]: Button,
+    [Divider.name]: Divider,
+    [VanImage.name]: VanImage,
   },
 
   data() {
@@ -40,7 +78,7 @@ export default {
   created() {},
 
   methods: {
-   async chekcAllOrder() {
+    async chekcAllOrder() {
       this.showOrderAll = true;
       await this.$axios
         .get("/api/order.json")
@@ -53,7 +91,6 @@ export default {
     },
     onClickLeft() {
       this.showOrderAll = false;
-
     },
   },
 };
@@ -77,5 +114,43 @@ export default {
 }
 .van-nav-bar__text {
   color: white;
+}
+.red-background {
+  height: 90px;
+  width: 100%;
+  background-color: red;
+}
+.simple-intro {
+  height: 100px;
+  margin-top: -50px;
+  margin-left: 35px;
+  width: 305px;
+  background-color: white;
+  border-radius: 10%;
+}
+.van-image {
+  margin-top: -30px;
+  margin-left: 10px;
+}
+.name {
+
+  margin-left: 10px;
+}
+.data{
+  padding-top: 10px;
+   margin-left: 27px;
+}
+.order-area {
+  width: 100%;
+  height: 110px;
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.service-area {
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  margin-bottom: 10px;
 }
 </style>

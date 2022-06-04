@@ -36,7 +36,7 @@ export default {
 
   data() {
     return {
-      active: 2,
+      active: 0,
     };
   },
 
@@ -81,6 +81,6 @@ export default {
 }
 
 .van-tab__pane {
-  padding-top: 20px;
+  
 }
 </style>

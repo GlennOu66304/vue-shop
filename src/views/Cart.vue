@@ -1,6 +1,21 @@
 <template>
   <div>
-    <van-nav-bar title="购物车" />
+    <van-nav-bar title="购物车"  />
+    <!-- <van-nav-bar
+      v-show="showAddresses"
+      title="选择地址"
+      left-text="返回"
+      left-arrow
+      @click-left="showAddressesLeft"
+    />
+    <van-nav-bar
+      v-show="showEditAddress"
+      v-if="showOrderAll"
+      title="编辑地址"
+      left-text="返回"
+      left-arrow
+      @click-left="showEditAddressLeft"
+    /> -->
     <!-- Cart interatc flow:
 
 1.go to the cart router, there are few shopping item' (v-for render)
@@ -11,8 +26,13 @@
 
 4.click the edit icon, then go to the location edit icon -->
 
-    <div class="cartList" v-for="item in cartList" :key="item.id" v-show="showSubmitBar">
-      <van-checkbox v-model="checked"/>
+    <div
+      class="cartList"
+      v-for="item in cartList"
+      :key="item.id"
+      v-show="showSubmitBar"
+    >
+      <van-checkbox v-model="checked" />
       <van-card
         tag="特价"
         :num="item.num"
@@ -172,6 +192,12 @@ export default {
         this.searchResult = [];
       }
     },
+    showAddressesLeft() {
+      this.showAddresses = false;
+    },
+    showEditAddress() {
+      this.showEditAddresses = false;
+    },
   },
 };
 </script>
@@ -199,11 +225,11 @@ export default {
   bottom: 50px;
   padding-bottom: 10px;
 }
-.van-card{
-   background-color: white;
+.van-card {
+  background-color: white;
   margin-bottom: 10px;
 }
-.cartList{
+.cartList {
   background-color: white;
 }
 </style>

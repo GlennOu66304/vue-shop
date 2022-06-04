@@ -4,24 +4,27 @@
     item description,display price, original pricediscount -->
     <!-- <img :src="item.img" alt="" /> -->
     <p class="order-time">{{ item.orderTime }}</p>
-    <hr />
+ <van-divider />
+ <!-- <hr> -->
     <img v-lazy="item.img" />
     <p class="desc">{{ item.desc }}</p>
 
     <p class="price">￥{{ item.price }}</p>
-    <hr />
+<van-divider />
+<!-- <hr> -->
     <p class="num">共{{ item.num }}件</p>
-    <van-button type="default">取消订单</van-button>
-    <van-button type="danger">立即购买</van-button>
+    <van-button type="default" size="small">取消订单</van-button>
+    <van-button type="danger" size="small">立即购买</van-button>
   </div>
 </template>
 
 <script>
-import { Button } from "vant";
+import { Button,Divider } from "vant";
 export default {
   name: "OrderItem",
   components: {
     [Button.name]: Button,
+    [Divider.name]: Divider
   },
   props: {
     item: Object,
@@ -72,5 +75,9 @@ img {
 .price {
   color: red;
   line-height: 16px;
+}
+.van-button{
+  margin-right:5px;
+ 
 }
 </style>
