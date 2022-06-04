@@ -1,16 +1,22 @@
 <template>
   <div class="me">
-    <van-nav-bar title="我的" />
-
+    <van-nav-bar
+      v-if="showOrderAll"
+      title="我订单"
+      left-text="返回"
+      left-arrow
+      @click-left="onClickLeft"
+    />
+    <van-nav-bar v-else title="我的" />
     <!-- simple intro -->
     <!-- order's area -->
     <div>
-      <span @click="chekcAllOrder">查看全部订单</span>
+      <span v-show="!showOrderAll" @click="chekcAllOrder">查看全部订单</span>
     </div>
     <!-- sercvice area -->
     <!-- log out button -->
     <!-- go to the all order area -->
-    <OrderAll v-if="showOrderAll" />
+    <OrderAll :orderList="orderList" v-if="showOrderAll" />
   </div>
 </template>
 
@@ -20,24 +26,36 @@ export default {
   name: "me",
 
   components: {
-      OrderAll,
-    },
+    OrderAll,
+  },
 
   data() {
     return {
       title: "我的",
       showOrderAll: false,
+      orderList: [],
     };
   },
 
   created() {},
 
   methods: {
-    chekcAllOrder() {
+   async chekcAllOrder() {
       this.showOrderAll = true;
+      await this.$axios
+        .get("/api/order.json")
+        .then((res) => {
+          this.orderList = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
-    
-  }
+    onClickLeft() {
+      this.showOrderAll = false;
+
+    },
+  },
 };
 </script>
 

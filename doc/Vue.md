@@ -1,10 +1,11 @@
 
 
-default the order deails is fals
+## Goal
 
-after you click the all order section, then show the order details section (v-if)
-
-transition effect use as well
+1. 1.van nav bar
+2. 2. 2. 2.Tab section
+      3. 3.data load
+      4. 3.1 order list,order item component
 
 
 
