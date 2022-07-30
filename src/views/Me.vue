@@ -21,7 +21,7 @@
             width="65"
             height="65"
             lazy-load
-            src="http://localhost:8088/atom.png"
+            src="https://vue-shop1.herokuapp.com/atom.png"
           />
           <!-- <img src="http://www.api.qsyj.com/img/atom.png" alt="" /> -->
           <span class="name">请叫我阿童木</span>
