@@ -172,7 +172,7 @@ export default {
     async loadSelectList() {
       var that = this;
       await this.$axios
-        .get("/api/winnow.json")
+        .get("/api/window.json")
         .then((res) => {
           that.windows = res.data;
           that.window1 = res.data.winnowItems1;
